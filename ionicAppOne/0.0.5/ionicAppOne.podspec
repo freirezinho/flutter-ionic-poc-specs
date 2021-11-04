@@ -6,6 +6,10 @@
 #  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
 
+SSF_APP_FOLDER_PATH = 'platforms/ios'
+SSF_APP_NAME = 'MyApp'
+SSF_APP_NAME_PATH = "#{SSF_APP_FOLDER_PATH}/#{SSF_APP_NAME}"
+SSF_CORDOVA_FILES = 'CordovaLib'
 Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -16,18 +20,17 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ionicAppOne"
-  spec.version      = "0.0.1"
-  spec.summary      = "A short description of ionicAppOne."
+  spec.version      = "0.0.5"
+  spec.summary      = "ionicAppOne is one of two ionic apps meant to be used in a proof of concept."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC
-                   DESC
+  spec.description  = "ionicAppOne is just a sample app made with ionic to be integrated in another app."
 
-  spec.homepage     = "http://EXAMPLE/ionicAppOne"
+  spec.homepage     = "http://github.com/freirezinho"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,7 +41,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = "MIT"
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -53,6 +56,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.author             = { "Saulo Freire" => "gbsaulo@gmail.com" }
+  
   # Or just: spec.author    = "Saulo Freire"
   # spec.authors            = { "Saulo Freire" => "gbsaulo@gmail.com" }
   # spec.social_media_url   = "https://twitter.com/Saulo Freire"
@@ -63,8 +67,7 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # spec.platform     = :ios
-  # spec.platform     = :ios, "5.0"
+  spec.platform     = :ios, "11.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -79,9 +82,8 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/ionicAppOne.git", :tag => "#{spec.version}" }
-
-
+  spec.source       = { :git => "git@github.com:freirezinho/ionic-sample-app-one.git", :tag => "#{spec.version}" }
+  
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  CocoaPods is smart about how it includes source code. For source files
@@ -90,11 +92,11 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+  spec.source_files = "Classes", "#{SSF_APP_NAME_PATH}/Classes/**/*.{h,m,swift}", "#{SSF_APP_NAME_PATH}/*.{h,m,swift}", "#{SSF_APP_NAME_PATH}/**/*.{h,m,swift}",
   spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
-
+  spec.dependency "Cordova", "5.1.1"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -109,6 +111,11 @@ Pod::Spec.new do |spec|
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
+  spec.resource_bundles = {
+    'ionicAppOne' => ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js}"]
+  }
+  spec.resources = ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js}"]
+
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -116,12 +123,7 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
 
-  # spec.framework  = "SomeFramework"
   # spec.frameworks = "SomeFramework", "AnotherFramework"
-
-  # spec.library   = "iconv"
-  # spec.libraries = "iconv", "xml2"
-
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -130,8 +132,13 @@ Pod::Spec.new do |spec|
   #  you can include multiple dependencies to ensure it works.
 
   # spec.requires_arc = true
+  spec.xcconfig = { 
+    'OTHER_LDFLAGS' => '-lsqlite3',
+    'HEADER_SEARCH_PATHS' => "$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include" + '"${PODS_ROOT}/platforms/ios/CordovaLib/Classes/Public/"' + '"${PODS_ROOT}/platforms/ios/CordovaLib/Classes/Private/"' + '"${PODS_ROOT}/platforms/ios/CordovaLib/Classes/Private/Plugins/"',
+  }
+  spec.preserve_paths = "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/Classes/**/*.{pch,h}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**"
 
-  # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # spec.dependency "JSONKit", "~> 1.4"
+  spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
 end
