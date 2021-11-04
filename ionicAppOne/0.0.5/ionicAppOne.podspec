@@ -75,6 +75,7 @@ Pod::Spec.new do |spec|
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
 
+  spec.static_framework = false
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -114,7 +115,7 @@ Pod::Spec.new do |spec|
   spec.resource_bundles = {
     'ionicAppOne' => ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}", "*.{js,config,starter,json,xml}", "#{SSF_APP_FOLDER_PATH}/platform_www/**/*"]
   }
-  spec.resources = ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}", "*.{js,config,starter,json,xml}", "#{SSF_APP_FOLDER_PATH}/platform_www/**/*"]
+  spec.resource = ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}", "*.{js,config,starter,json,xml}", "#{SSF_APP_FOLDER_PATH}/platform_www/**/*"]
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
