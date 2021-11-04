@@ -112,9 +112,9 @@ Pod::Spec.new do |spec|
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
   spec.resource_bundles = {
-    'ionicAppOne' => ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js}"]
+    'ionicAppOne' => ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}", "*.{js,json,xml}"]
   }
-  spec.resources = ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js}"]
+  spec.resources = ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}", "*.{js,json,xml}"]
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
