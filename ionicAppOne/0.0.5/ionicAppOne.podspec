@@ -93,7 +93,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files = "Classes", "#{SSF_APP_NAME_PATH}/Classes/**/*.{h,m,swift}", "#{SSF_APP_NAME_PATH}/*.{h,m,swift}", "#{SSF_APP_NAME_PATH}/**/*.{h,m,swift}",
-  spec.exclude_files = "Classes/Exclude"
+  spec.exclude_files = "platforms/ios/CordovaLib/cordova.js"
 
   # spec.public_header_files = "Classes/**/*.h"
   spec.dependency "Cordova", "5.1.1"
@@ -112,9 +112,9 @@ Pod::Spec.new do |spec|
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
   spec.resource_bundles = {
-    'ionicAppOne' => ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}", "*.{js,json,xml}"]
+    'ionicAppOne' => ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}", "*.{js,config,starter,json,xml}", "#{SSF_APP_FOLDER_PATH}/platform_www/**/*"]
   }
-  spec.resources = ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}", "*.{js,json,xml}"]
+  spec.resources = ["#{SSF_APP_NAME_PATH}/*.{xcassets}", "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}", "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}", "*.{js,config,starter,json,xml}", "#{SSF_APP_FOLDER_PATH}/platform_www/**/*"]
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
