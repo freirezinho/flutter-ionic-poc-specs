@@ -113,23 +113,25 @@ Pod::Spec.new do |spec|
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
   spec.resource_bundles = {
     'ionicAppOne' => [
-      "#{SSF_APP_NAME_PATH}/*.{xcassets}",
+      "#{SSF_APP_NAME_PATH}/*.{xcassets,json}",
       "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}",
       "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}",
       "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}",
       "*.{js,config,starter,json,xml}",
+      "#{SSF_APP_NAME_PATH}/*.{json}",
       #"#{SSF_APP_FOLDER_PATH}/platform_www/**/*",
       "#{SSF_APP_NAME_PATH}/Scripts/*.{sh}",
       "#{SSF_APP_FOLDER_PATH}/www",
-      "#{SSF_APP_FOLDER_PATH}/www/**/*{js}"
+      "#{SSF_APP_FOLDER_PATH}/www/**/*{js,json}"
     ]
   }
   spec.resource = [
-    "#{SSF_APP_NAME_PATH}/*.{xcassets}",
+    "#{SSF_APP_NAME_PATH}/*.{xcassets,json}",
     "#{SSF_APP_NAME_PATH}/*.{storyboard,xib}",
     "#{SSF_APP_NAME_PATH}/**/*.{storyboard,xib}",
     "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**/*.{js,xml,json}",
-    "*.{js,config,starter,json,xml}",
+    "*.{js,config,starter,json,json,xml}",
+    "#{SSF_APP_NAME_PATH}/*.{json}",
     #"#{SSF_APP_FOLDER_PATH}/platform_www/**/*",
     "#{SSF_APP_NAME_PATH}/Scripts/*.{sh}",
     "#{SSF_APP_FOLDER_PATH}/www",
