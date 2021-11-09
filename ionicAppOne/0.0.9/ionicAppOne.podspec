@@ -158,7 +158,7 @@ Pod::Spec.new do |spec|
     'OTHER_LDFLAGS' => '-lsqlite3',
     'HEADER_SEARCH_PATHS' => "$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include" + '"${PODS_ROOT}/platforms/ios/CordovaLib/Classes/Public/"' + '"${PODS_ROOT}/platforms/ios/CordovaLib/Classes/Private/"' + '"${PODS_ROOT}/platforms/ios/CordovaLib/Classes/Private/Plugins/"',
   }
-  spec.preserve_paths = "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/Classes/**/*.{pch,h}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**", "#{SSF_APP_NAME_PATH}/Scripts/*.{sh}", "#{SSF_APP_FOLDER_PATH}/www", "#{SSF_APP_FOLDER_PATH}/www/**/*{js}"
+  spec.preserve_paths = "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/Classes/**/*.{pch,h}", "#{SSF_APP_FOLDER_PATH}/#{SSF_CORDOVA_FILES}/**", "#{SSF_APP_NAME_PATH}/Scripts/*.{sh}", "#{SSF_APP_FOLDER_PATH}/www", "#{SSF_APP_FOLDER_PATH}/www/**/*{js}", "plugins/*{.json}", "plugins/**/*{xml,json,h,m,js}"
 
   spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
