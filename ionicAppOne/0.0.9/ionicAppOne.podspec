@@ -97,7 +97,7 @@ Pod::Spec.new do |spec|
   spec.exclude_files = "platforms/ios/CordovaLib/cordova.js"
 
   # spec.public_header_files = "Classes/**/*.h"
-  spec.dependency "Cordova", "5.1.1"
+  spec.dependency "Cordova", "4.5.4"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
